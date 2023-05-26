@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,14 +8,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  username?: string;
-  password?: string;
+  
+  loginForm = this.formBuilder.group({
+    username: "",
+    password: ""
+  });
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private formBuilder: FormBuilder) {}
 
   login(): void {
-    if (this.username === 'admin' && this.password === 'admin') {
-      this.router.navigate(["clients"]);
+    const { username, password } = this.loginForm.value;
+    if (username === 'admin' && password === 'admin') {
+      this.router.navigate(["client-list"]);
     } else {
       alert("Invalid credentials");
     }
