@@ -1,0 +1,9 @@
+<div class="clients-container">
+  <div class="client-card" *ngFor="let client of clients">
+    <h3>{{ client.name }}</h3>
+    <p><strong>CPF:</strong> {{ client.cpf }}</p>
+    <p><strong>Telefone:</strong> {{ client.phone }}</p>
+    <p><strong>Logradouro:</strong> {{ client.address }}</p>
+    <p><strong>CEP:</strong> {{ client.zipCode }}</p>
+  </div>
+</div>
